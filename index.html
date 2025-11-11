@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nordisk Automasjon — Smarte automatiseringsløsninger for norske bedrifter</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="logo.svg" alt="Nordisk Automasjon" class="logo" />
+        <div>
+          <h1>Nordisk Automasjon</h1>
+          <div class="tag">Automatisering • Booking • Leads</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#tjenester">Tjenester</a>
+        <a href="#løsning">Løsning</a>
+        <a href="#priser">Priser</a>
+        <a href="#case">Case</a>
+        <a href="#kontakt" class="cta">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-left">
+        <h2>Gjør kundeservice og booking sømløst — uten manuell håndtering</h2>
+        <p class="lead">Vi setter opp sikre, brukervennlige automasjoner som fanger leads, øker bookinger og frigjør tid. Integreres med kalender, Google Sheets eller Airtable.</p>
+        <div class="actions">
+          <button id="demoBtn" class="btn primary">Prøv live demo</button>
+          <a href="#priser" class="btn">Se priser</a>
+        </div>
+        <ul class="features">
+          <li>24/7 tilgjengelig kundedialog</li>
+          <li>Direkte booking i chat</li>
+          <li>Enkel eksport til Sheets / Airtable</li>
+        </ul>
+      </div>
+
+      <aside class="hero-right card">
+        <h3>Demo dashboard</h3>
+        <p class="muted">Simuler leads for å se hvordan statistikk og bookings oppdateres.</p>
+        <canvas id="leadsChart" height="140"></canvas>
+        <div class="mini-stats">
+          <div><div id="statLeads" class="big">0</div><div class="muted small">Leads</div></div>
+          <div><div id="statBookings" class="big">0</div><div class="muted small">Bookinger</div></div>
+          <div><div id="statResponse" class="big">—</div><div class="muted small">Gj.snitt responstid</div></div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="tjenester" class="section">
+      <h2>Våre tjenester</h2>
+      <p class="muted">Komplette løsninger designet for små og mellomstore bedrifter i Norge.</p>
+      <div class="grid-3">
+        <article class="service card">
+          <h3>Chat & kundedialog</h3>
+          <p>Automatisk svar på vanlige spørsmål, kundeinfo-samling og hurtig prioritering av hastehenvendelser.</p>
+        </article>
+        <article class="service card">
+          <h3>Automatisk booking</h3>
+          <p>La kunder booke direkte i chatten. Synkroniserer med Google Calendar og Outlook.</p>
+        </article>
+        <article class="service card">
+          <h3>Lead-oversikt & rapporter</h3>
+          <p>Samle leads i Google Sheets eller Airtable. Eksporter CSV, få daglige rapporter.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="løsning" class="section alt card">
+      <h2>Hvordan løsningen fungerer</h2>
+      <div class="steps">
+        <div><strong>1</strong><span>Besøkende starter chat eller skjema</span></div>
+        <div><strong>2</strong><span>Bot samler kundeinfo og foreslår tid</span></div>
+        <div><strong>3</strong><span>Bookingen plottes i kalender</span></div>
+        <div><strong>4</strong><span>Varsel til bedriften via e-post/SMS</span></div>
+      </div>
+
+      <h3 class="mt">Integrasjoner</h3>
+      <div class="integrations">
+        <button class="int-btn" data-int="sheets">Google Sheets</button>
+        <button class="int-btn" data-int="airtable">Airtable</button>
+        <button class="int-btn" data-int="calendar">Google Calendar</button>
+        <div id="intInfo" class="int-info muted">Velg en integrasjon for mer informasjon.</div>
+      </div>
+    </section>
+
+    <section id="priser" class="section">
+      <h2>Priser</h2>
+      <p class="muted">Enkel prisstruktur. Ingen skjulte kostnader. Ingen bindningstid for basisløsningen.</p>
+      <div class="grid-3">
+        <div class="price card">
+          <h4>Basis</h4>
+          <div class="price-value">kr 499 / mnd</div>
+          <ul>
+            <li>Chat & skjema</li>
+            <li>CSV-eksport</li>
+            <li>E-post-varsler</li>
+          </ul>
+          <button class="btn selectPlan" data-plan="Basis">Velg</button>
+        </div>
+        <div class="price card featured">
+          <h4>Standard</h4>
+          <div class="price-value">kr 1 299 / mnd</div>
+          <ul>
+            <li>Booking-integrasjon</li>
+            <li>SMS-varsling</li>
+            <li>Rapporter</li>
+          </ul>
+          <button class="btn selectPlan" data-plan="Standard">Velg</button>
+        </div>
+        <div class="price card">
+          <h4>Pro</h4>
+          <div class="price-value">kr 2 999 / mnd</div>
+          <ul>
+            <li>Tilpasset integrasjon</li>
+            <li>Prioritert support</li>
+            <li>SLA</li>
+          </ul>
+          <button class="btn selectPlan" data-plan="Pro">Velg</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="case" class="section">
+      <h2>Case (fiktive — for demo)</h2>
+      <p class="muted">Realistiske eksempler du kan vise kunder for å illustrere effekt.</p>
+      <div class="grid-2">
+        <div class="case card">
+          <h4>Frisørsalong — Bergen</h4>
+          <p>Resultat: +35% i bookinger ved automatisk booking og SMS-påminnelse.</p>
+        </div>
+        <div class="case card">
+          <h4>Tannklinikk — Oslo</h4>
+          <p>Resultat: 24/7 booking, bedre lead-oversikt og 60% mindre administrasjonstid.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="section alt">
+      <h2>Kontakt oss</h2>
+      <p class="muted">Book en gratis demo eller få et prisoverslag tilpasset din bedrift.</p>
+
+      <div class="grid-2">
+        <div class="contact card">
+          <h3>Kontaktinformasjon</h3>
+          <p><strong>Benjamin Langås Reigstad</strong></p>
+          <p>E-post: <a href="mailto:benjaminlr2008@icloud.com">benjaminlr2008@icloud.com</a></p>
+          <p>Telefon: <a href="tel:+4748233283">+47 482 33 283</a></p>
+          <hr>
+          <p class="muted small">Leads lagres lokalt i denne demoen. For produksjon kobler vi til Google Sheets / Airtable eller eget back-end.</p>
+          <button id="downloadLeads" class="btn">Last ned leads (CSV)</button>
+        </div>
+
+        <form id="contactForm" class="card form">
+          <label>Navn<input id="cfName" required /></label>
+          <label>E-post<input id="cfEmail" type="email" required /></label>
+          <label>Telefon<input id="cfPhone" /></label>
+          <label>Bedrift<input id="cfCompany" /></label>
+          <label>Melding<textarea id="cfMessage" rows="4"></textarea></label>
+          <div class="form-actions">
+            <button type="submit" class="btn primary">Send forespørsel</button>
+            <button type="button" id="demoLead" class="btn">Generer test-lead</button>
+          </div>
+          <div id="formMsg" class="muted small"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>© 2025 Nordisk Automasjon</div>
+        <div class="muted">Personvern • Vilkår</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- chat widget -->
+  <div id="chatWidget" class="chat closed" aria-hidden="true">
+    <div class="chat-header">
+      <div><strong>Chat</strong><div class="muted small">Få en demo eller still spørsmål</div></div>
+      <button id="closeChat" class="icon">✕</button>
+    </div>
+    <div id="chatBody" class="chat-body"></div>
+    <form id="chatForm" class="chat-form">
+      <input id="chatName" placeholder="Navn" required />
+      <input id="chatEmail" placeholder="E-post" type="email" required />
+      <select id="chatService"><option value="">Velg tjeneste</option><option value="booking">Booking</option><option value="leads">Leadhåndtering</option></select>
+      <input id="chatTime" type="datetime-local" />
+      <div class="chat-actions"><button class="btn primary">Send</button></div>
+    </form>
+  </div>
+  <button id="openChatBtn" class="chat-button" aria-label="Åpne chat">💬</button>
+
+  <!-- modal for plan selection -->
+  <div id="modal" class="modal hidden" role="dialog" aria-hidden="true">
+    <div class="modal-content card">
+      <button id="closeModal" class="close">✕</button>
+      <h3 id="modalTitle">Plan valgt</h3>
+      <p id="modalBody">Vi sender et tilbud til din e-post.</p>
+      <div class="modal-actions"><button id="modalOk" class="btn primary">OK</button></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
